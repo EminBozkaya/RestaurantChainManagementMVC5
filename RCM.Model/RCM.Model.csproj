@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD900BF5-713D-4717-B353-8D08BC0C1C61}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RCM.Model</RootNamespace>
+    <AssemblyName>RCM.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.0.0\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Complex\Custom\ErrorFormatVm.cs" />
+    <Compile Include="Complex\DashBoard\ChangesByUser\UserInfo\ActiveBranchInfoVm.cs" />
+    <Compile Include="Complex\DashBoard\ChangesByUser\UserInfo\ProfileEditVm.cs" />
+    <Compile Include="Complex\DashBoard\SystemManagement\User\AllAuthorityTypesForDropDownListVm.cs" />
+    <Compile Include="Complex\DashBoard\SystemManagement\User\AllBranchesForDropDownListVm.cs" />
+    <Compile Include="Complex\DashBoard\SystemManagement\User\CreateNewUserVm.cs" />
+    <Compile Include="Complex\DashBoard\SystemManagement\User\UpdateUserVm.cs" />
+    <Compile Include="Complex\DashBoard\SystemManagement\User\UserListForDataTableVm.cs" />
+    <Compile Include="Complex\Login\ForgotPasswordVm.cs" />
+    <Compile Include="Complex\Login\LogInVm.cs" />
+    <Compile Include="Complex\Login\SetUserInfoVm.cs" />
+    <Compile Include="Domain\AdressOfCustomer.cs" />
+    <Compile Include="Domain\AuthorityType.cs" />
+    <Compile Include="Domain\Branch.cs" />
+    <Compile Include="Domain\BranchCaseType.cs" />
+    <Compile Include="Domain\BranchCaseTypeFlow.cs" />
+    <Compile Include="Domain\BranchConsumption.cs" />
+    <Compile Include="Domain\BranchCreditCard.cs" />
+    <Compile Include="Domain\BranchCreditCardFlow.cs" />
+    <Compile Include="Domain\BranchDailyRevenue.cs" />
+    <Compile Include="Domain\BranchProductPrice.cs" />
+    <Compile Include="Domain\BranchRevenueDistribution.cs" />
+    <Compile Include="Domain\BranchStock.cs" />
+    <Compile Include="Domain\BranchStockEntry.cs" />
+    <Compile Include="Domain\CaseType.cs" />
+    <Compile Include="Domain\MyException.cs" />
+    <Compile Include="Domain\RawMaterialOfSupplier.cs" />
+    <Compile Include="Domain\ConsumeType.cs" />
+    <Compile Include="Domain\CreditCard.cs" />
+    <Compile Include="Domain\Customer.cs" />
+    <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Domain\EmployeeMoneyFlow.cs" />
+    <Compile Include="Domain\EmployeePaymentType.cs" />
+    <Compile Include="Domain\EmployeeRollCall.cs" />
+    <Compile Include="Domain\ExpenseFlow.cs" />
+    <Compile Include="Domain\ExpenseType.cs" />
+    <Compile Include="Domain\FirmType.cs" />
+    <Compile Include="Domain\PositionType.cs" />
+    <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\ProductCategory.cs" />
+    <Compile Include="Domain\ProductPhoto.cs" />
+    <Compile Include="Domain\RawMaterial.cs" />
+    <Compile Include="Domain\RawMaterialOfProduct.cs" />
+    <Compile Include="Domain\RollCallType.cs" />
+    <Compile Include="Domain\SalaryType.cs" />
+    <Compile Include="Domain\Sale.cs" />
+    <Compile Include="Domain\SaleDetail.cs" />
+    <Compile Include="Domain\SaleNoteCategory.cs" />
+    <Compile Include="Domain\SaleNote.cs" />
+    <Compile Include="Domain\SaleNoteOfProduct.cs" />
+    <Compile Include="Domain\SaleType.cs" />
+    <Compile Include="Domain\Supplier.cs" />
+    <Compile Include="Domain\SupplierMoneyFlow.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Domain\UserBranchAuthority.cs" />
+    <Compile Include="Domain\WorkType.cs" />
+    <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Multiple\LoginMm.cs" />
+    <Compile Include="Multiple\DashBoardMm.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RCM.Core\Core.csproj">
+      <Project>{0bcf9ab6-32c0-45c9-9417-43d4bc72207b}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

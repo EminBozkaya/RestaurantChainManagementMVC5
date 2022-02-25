@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62380B95-2C52-4BE4-9E78-456F1E7D9800}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RCM.DataAccess</RootNamespace>
+    <AssemblyName>RCM.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IBranchCaseTypeRepo.cs" />
+    <Compile Include="Abstract\IBranchCaseTypeFlowRepo.cs" />
+    <Compile Include="Abstract\IBranchConsumptionRepo.cs" />
+    <Compile Include="Abstract\IBranchCreditCardRepo.cs" />
+    <Compile Include="Abstract\IBranchCreditCardFlowRepo.cs" />
+    <Compile Include="Abstract\IBranchDailyRevenueRepo.cs" />
+    <Compile Include="Abstract\IBranchProductPriceRepo.cs" />
+    <Compile Include="Abstract\IBranchRevenueDistributionRepo.cs" />
+    <Compile Include="Abstract\IMyExceptionRepo.cs" />
+    <Compile Include="Abstract\IRawMaterialRepo.cs" />
+    <Compile Include="Abstract\IAdressOfCustomerRepo.cs" />
+    <Compile Include="Abstract\IBranchStockRepo.cs" />
+    <Compile Include="Abstract\IFirmTypeRepo.cs" />
+    <Compile Include="Abstract\IProductRepo.cs" />
+    <Compile Include="Abstract\IProductPhotoRepo.cs" />
+    <Compile Include="Abstract\ICaseTypeRepo.cs" />
+    <Compile Include="Abstract\IBranchStockEntryRepo.cs" />
+    <Compile Include="Abstract\IPositionTypeRepo.cs" />
+    <Compile Include="Abstract\IAuthorityTypeRepo.cs" />
+    <Compile Include="Abstract\IExpenseTypeRepo.cs" />
+    <Compile Include="Abstract\IEmployeeRepo.cs" />
+    <Compile Include="Abstract\IEmployeePaymentTypeRepo.cs" />
+    <Compile Include="Abstract\IEmployeeMoneyFlowRepo.cs" />
+    <Compile Include="Abstract\IConsumeTypeRepo.cs" />
+    <Compile Include="Abstract\IProductCategoryRepo.cs" />
+    <Compile Include="Abstract\ICustomerRepo.cs" />
+    <Compile Include="Abstract\ICreditCardRepo.cs" />
+    <Compile Include="Abstract\IEmployeeRollCallRepo.cs" />
+    <Compile Include="Abstract\IExpenseFlowRepo.cs" />
+    <Compile Include="Abstract\IBranchRepo.cs" />
+    <Compile Include="Abstract\IRollCallTypeRepo.cs" />
+    <Compile Include="Abstract\ISalaryTypeRepo.cs" />
+    <Compile Include="Abstract\ISaleNoteCategoryRepo.cs" />
+    <Compile Include="Abstract\ISaleRepo.cs" />
+    <Compile Include="Abstract\ISaleNoteRepo.cs" />
+    <Compile Include="Abstract\ISaleNoteOfProductRepo.cs" />
+    <Compile Include="Abstract\ISaleTypeRepo.cs" />
+    <Compile Include="Abstract\ISupplierRepo.cs" />
+    <Compile Include="Abstract\ISupplierMoneyFlowRepo.cs" />
+    <Compile Include="Abstract\IWorkTypeRepo.cs" />
+    <Compile Include="Abstract\IUserBranchAuthorityRepo.cs" />
+    <Compile Include="Abstract\IRawMaterialOfProductRepo.cs" />
+    <Compile Include="Abstract\IRawMaterialOfSupplierRepo.cs" />
+    <Compile Include="Abstract\ISaleDetailRepo.cs" />
+    <Compile Include="Abstract\IUserRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Context\RCMContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\AdressOfCustomerMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\AuthorityTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchCaseTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchCaseTypeFlowMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchConsumptionMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchCreditCardMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchCreditCardFlowMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchDailyRevenueMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchProductPriceMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchRevenueDistributionMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchStockMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\BranchStockEntryMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\CaseTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ConsumeTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\CreditCardMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\CustomerMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\EmployeeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\EmployeeMoneyFlowMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\EmployeePaymentTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\EmployeeRollCallMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\MyExceptionMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ExpenseFlowMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ExpenseTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\FirmTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\PositionTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ProductMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ProductCategoryMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\ProductPhotoMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\RawMaterialMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\RawMaterialOfProductMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\RawMaterialOfSupplierMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\RollCallTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SalaryTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleDetailMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleNoteCategoryMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleNoteMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleNoteOfProductMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SaleTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SupplierMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\SupplierMoneyFlowMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\UserBranchAuthorityMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\UserMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mapping\WorkTypeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchConsumptionRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchCreditCardRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchCreditCardFlowRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchCaseTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchCaseTypeFlowRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchDailyRevenueRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfAdressOfCustomerRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchStockEntryRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfCaseTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfConsumeTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchRevenueDistributionRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchProductPriceRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchStockRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfCreditCardRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfAuthorityTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfEmployeePaymentTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfMyExceptionRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfExpenseFlowRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfEmployeeMoneyFlowRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfEmployeeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfCustomerRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfEmployeeRollCallRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfExpenseTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfBranchRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfProductCategoryRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfProductPhotoRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfRawMaterialRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfPositionTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfFirmTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfProductRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfRollCallTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleNoteCategoryRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSupplierMoneyFlowRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfWorkTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleDetailRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfRawMaterialOfSupplierRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfUserBranchAuthorityRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleNoteOfProductRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSupplierRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSalaryTypeRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfSaleNoteRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfRawMaterialOfProductRepo.cs" />
+    <Compile Include="Concrete\EntityFramework\Repositories\EfUserRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\AdoNet\Repositories\" />
+    <Folder Include="Concrete\NHibernate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RCM.Core\Core.csproj">
+      <Project>{0bcf9ab6-32c0-45c9-9417-43d4bc72207b}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RCM.Model\RCM.Model.csproj">
+      <Project>{fd900bf5-713d-4717-b353-8d08bc0c1c61}</Project>
+      <Name>RCM.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

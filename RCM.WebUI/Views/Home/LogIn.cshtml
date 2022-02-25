@@ -1,0 +1,263 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using RCM.Model.Multiple
+
+@model LoginMm
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ÖNCÜ DÖNER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="~/MyImages/Login/oncu.ico" />
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/all.min.css">
+    <!-- Toastr -->
+    <link href="~/Content/plugins/AdminLte/css/toastr.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/tempusdominus-bootstrap-4.min.css">
+    <link href="~/Content/plugins/AdminLte/css/select2.min.css" rel="stylesheet" />
+    <link href="~/Content/plugins/AdminLte/css/select2-bootstrap4.min.css" rel="stylesheet" />
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    @*<link rel="stylesheet" href="~/Content/plugins/AdminLte/css/jqvmap.min.css">*@
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    @*<link rel="stylesheet" href="~/Content/plugins/AdminLte/css/daterangepicker.css">*@
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/plugins/AdminLte/css/summernote-bs4.min.css">
+
+
+    <link rel="icon" type="image/png" href="~/MyImages/Login/oncu.ico" />
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/plugins/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+
+    <link href="~/Content/plugins/sweetalert/sweetalert2.css" rel="stylesheet" />
+
+    <link href="~/MyCSS/Login/sendMail.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <div id="loginPage" class="limiter" style="background-image: url('@Url.Content("~/MyImages/Login/LoginFon_1.png")');background-size: contain">
+        <div class="container-login100">
+            <div class="wrap-login100" style="width:580px; border-radius:70px">
+                <div style="background-color:white">
+                    <div class="login100-form-title" style="background-image: url('@Url.Content("~/MyImages/Login/LoginPanel.png")'); background-size: contain; height:240px;">
+                        @*<span class="login100-form-title-1">
+                ÖNCÜ
+            </span>*@
+                    </div>
+
+                    <form class="login100-form validate-form" id="myLoginForm">
+                        <div class="wrap-input100 validate-input m-b-26" @*data-validate="Username is required"*@>
+                            <span class="label-input100">Kullanıcı Adı :</span>
+                            @*<input id="txtUsername" class="input100" type="text" name="txtusername" placeholder="Kullanıcı ad-soyad giriniz">*@
+                            @Html.TextBoxFor(x => x.loginVm.UserName, new { id = "txtUsername", @class = "input100", placeholder = "Kullanıcı ad-soyad giriniz" })
+                            @* @Html.ValidationMessageFor(x=> x.Username)*@
+
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-18" @*data-validate="Password is required"*@>
+                            <span class="label-input100">Şifre  :</span>
+                            @*<input id="txtPassword" class="input100" type="password" name="pass" placeholder="Şifreyi giriniz">*@
+                            @Html.PasswordFor(x => x.loginVm.Password, new { id = "txtPassword", @type = "password", @class = "input100", placeholder = "Şifre giriniz" })
+                            @*@Html.ValidationMessageFor(x => x.Password)*@
+
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="flex-sb-m w-full p-b-30">
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="chkRememberMe" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="chkRememberMe">
+                                    Beni Hatırla
+                                </label>
+                            </div>
+
+                            <div>
+                                <a href="#" data-toggle="modal" data-target="#divForgotPassword" class="txt1">
+                                    Bilgilerimi Unuttum?
+                                </a>
+                            </div>
+                        </div>
+
+                        <div id="mydiv" class="container-login100-form-btn">
+                            <button id="btnLogIn" type="button" class="login100-form-btn" style="background-color: tomato; width:50px">
+                                Giriş
+                            </button><img id="loginWait" style="display:none;width:50px;margin-left:65px" src="~/MyGifs/progressIcon.jpg" />
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="divForgotPassword">
+        <div class="modal-dialog">
+            <div class="modal-content bg-warning">
+                <div class="modal-header">
+                    <h4 class="modal-title">Şifremi Unuttum</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="frmForgotPassword">
+                    <div class="modal-body">
+                        <div class="wrap-input100 validate-input m-b-26">
+                            @*<input id="txtUsernameForgotPassword" class="input100" type="text" name="txtusername" placeholder="Kullanıcı adınızı giriniz" style="background-color:white">*@
+                            @Html.TextBoxFor(x => x.forgotPasswordVm.FirstName, new { id = "txtFirstNameForgotPassword", @class = "input100", name = "txtfirstname", type = "text", style = "background-color:white", placeholder = "Adınızı giriniz" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-26">
+                            @*<input id="txtUsernameForgotPassword" class="input100" type="text" name="txtusername" placeholder="Kullanıcı adınızı giriniz" style="background-color:white">*@
+                            @Html.TextBoxFor(x => x.forgotPasswordVm.LastName, new { id = "txtLastNameForgotPassword", @class = "input100", name = "txtlastname", type = "text", style = "background-color:white", placeholder = "Soyadınızı giriniz" })
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input m-b-26">
+                            @*<input id="txtEmailForgotPassword" class="input100" type="email" name="txtemail" placeholder="Mail adresinizi giriniz" style="background-color:white">*@
+                            @Html.TextBoxFor(x => x.forgotPasswordVm.Email, new { id = "txtEmailForgotPassword", @class = "input100", type = "text", style = "background-color:white", placeholder = "Mail adresinizi giriniz" })
+                            <span class="focus-input100"></span>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Kapat</button>
+                        <button type="button" id="btnSendPassword" class="btn btn-outline-dark">Şifre Gönder</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="mdlSelectBranch" aria-hidden="true">
+        <div class="modal-dialog">
+            <div id="modalBody" class="modal-content bg-danger">
+                <div class="modal-header">
+                    <h4 class="modal-title">ŞUBE SEÇİMİ</h4>
+                    <button type="button" id="btnExitModel" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Yetkili olduğunuz şubeler:</label>
+                                <div id="myParent" class="form-group">
+
+                                    @*creates "Select - elemnt" in login.js*@
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" id="btnCloseModel" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" id="btnEdituser" class="btn btn-secondary" userUpdate="useredit">Giriş Yap</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div id="mailsend">
+        <div id="sendmail">
+            <img src="~/MyGifs/mailSend.gif" style="width:700px;" />
+        </div>
+    </div>
+    <!--<div id="loginWait">
+        <div id="loading">
+            <img src="~/Content/Gifs/cropedchickenLoader.gif"-->
+    @*style="width:700px;"*@
+    <!--/>
+        </div>
+    </div>-->
+    <!-- REQUIRED SCRIPTS -->
+
+    <script src="~/Content/plugins/AdminLte/js/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/Content/plugins/AdminLte/js/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    @*<script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>*@
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/plugins/AdminLte/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/plugins/AdminLte/js/select2.full.min.js"></script>
+    <script src="~/Content/plugins/AdminLte/js/jquery.bootstrap-duallistbox.min.js"></script>
+
+    <!-- ChartJS -->
+    <script src="~/Content/plugins/AdminLte/js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Content/plugins/AdminLte/js/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Content/plugins/AdminLte/js/jquery.vmap.min.js"></script>
+    <script src="~/Content/plugins/AdminLte/js/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/plugins/AdminLte/js/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Content/plugins/AdminLte/js/moment.min.js"></script>
+    <script src="~/Content/plugins/AdminLte/js/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Content/plugins/AdminLte/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Content/plugins/AdminLte/js/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Content/plugins/AdminLte/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    @*<script src="~/Content/plugins/AdminLte/js/adminlte.min.js"></script>*@
+    <script src="~/Content/plugins/AdminLte/js/adminlte.js"></script>
+    <!-- Toastr -->
+    <script src="~/Content/plugins/AdminLte/js/toastr.min.js"></script>
+
+
+    <!-- Client side validation -->
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+    @*<script src="~/Content/plugins/vendor/jquery/jquery-3.2.1.min.js"></script>*@
+    <script src="~/Content/plugins/vendor/animsition/js/animsition.min.js"></script>
+    <script src="~/Content/plugins/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/plugins/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Content/plugins/vendor/select2/select2.min.js"></script>
+    <script src="~/Content/plugins/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/plugins/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/plugins/vendor/countdowntime/countdowntime.js"></script>
+    <script src="~/Content/js/main.js"></script>
+
+    <script src="~/Content/plugins/sweetalert/sweetalert2.js"></script>
+
+    <script src="~/MyScripts/Login/Login.js"></script>
+</body>
+</html>
